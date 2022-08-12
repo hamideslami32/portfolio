@@ -4,7 +4,9 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <h1>Hamid Eslami Portfolio (Coming soon ...)</h1>
+      <h1>Hamid Eslami Portfolio</h1>
+      <h2>Front-End Developer</h2>
+      <h3>Coming soon ...</h3>
     </div>
   )
 }
