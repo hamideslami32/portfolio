@@ -1,0 +1,29 @@
+  
+on:
+  push:
+    branches:    
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.18.2
+      - name: NPM install cache
+        uses: bahmutov/npm-install@v1.6.0
+      - name: Building
+        run: npm run build
+      - name: rename dist to html 
+        run: mv dist html
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USER}}
+          password: ${{secrets.PASSWORD}}
+          source: "html"
+          target: "hamid-eslami.ir/"
