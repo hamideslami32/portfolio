@@ -1,18 +1,22 @@
 .header {
-  padding: 8px 0;
+  padding: 4px 0;
   display: flex;
   align-items: center;
   border-bottom: 2px solid #eaeaea;
+  .home-icon:hover {
+    fill: red;
+    transition: fill 0.4s ease;
+  }
   & > * {
     flex: 1;
   }
   & > h1 {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     transition: color 0.4s ease;
     margin: 0;
     &:hover {
-      color: gray;
+      color: red;
     }
   }
   .nav {
@@ -24,14 +28,11 @@
       li {
         border-radius: 4px;
         margin-left: 30px;
-        font-size: 18px;
-        padding: 16px;
+        font-size: 20px;
+        align-self: center;
         transition: color 0.4s ease;
         &:first-child {
           margin-left: 0;
-        }
-        .active {
-          color: rgb(150, 0, 0);
         }
         &:hover {
           color: red;

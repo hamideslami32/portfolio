@@ -1,0 +1,20 @@
+.contact {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > * {
+    margin-right: 32px;
+  }
+  & > *:last-child {
+    margin-right: 0;
+  }
+  & svg {
+    fill: gray;
+
+    &:hover {
+      fill: blue;
+      transition: fill 0.4s ease;
+    }
+  }
+}
