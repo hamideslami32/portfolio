@@ -1,6 +1,6 @@
 const navLinks = [
-  { text: "Contact", url: "/contact" },
-  { text: "About", url: "/about" },
+  { text: "Resume", url: "/resume" },
+  { text: "Conatct", url: "/contact" },
   { text: "Home", url: "/" },
 ];
 
@@ -9,7 +9,7 @@ import styles from "./header.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1>Hamid Eslami</h1>
+      <h1><a href="/">Hamid Eslami</a></h1>
       <nav className={styles.nav}>
         <ul className="">
           {navLinks.map((link, index) => {

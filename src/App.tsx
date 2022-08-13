@@ -10,9 +10,9 @@ function App() {
   return (
     <div className={styles.app}>
       <Header />
-      {articles.map((article, index) => (
+      {/* {articles.map((article, index) => (
         <Article {...article} />
-      ))}
+      ))} */}
     </div>
   );
 }
