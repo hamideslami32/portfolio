@@ -1,14 +1,20 @@
-import styles from './app.module.scss'
+import styles from "./app.module.scss";
+import Article, { IArticleProps } from "./components/article/Article";
+import Header from "./components/layouts/header/Header";
 
+const articles: IArticleProps[] = [
+  { title: "first", body: "this is the first article" },
+  { title: "second", body: "this is the second article" },
+];
 function App() {
-
   return (
     <div className={styles.app}>
-      <h1>Hamid Eslami</h1>
-      <h2>Front-End Developer</h2>
-      <h3>heslami32@gmail.com</h3>
+      <Header />
+      {articles.map((article, index) => (
+        <Article {...article} />
+      ))}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

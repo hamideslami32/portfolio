@@ -1,0 +1,12 @@
+.article {
+    margin: 24px 0;
+    padding: 16px;
+    border-bottom: 1px dashed #e0e0e0;
+
+    & > h2 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: capitalize;
+        margin-bottom: 16px;
+    }
+}
