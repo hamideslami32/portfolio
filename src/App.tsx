@@ -1,18 +1,22 @@
 import styles from "./app.module.scss";
-import Article, { IArticleProps } from "./components/article/Article";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Resume from "./pages/resume/Resume";
+import Contact from "./pages/contact/Contact";
+
 import Header from "./components/layouts/header/Header";
 
-const articles: IArticleProps[] = [
-  { title: "first", body: "this is the first article" },
-  { title: "second", body: "this is the second article" },
-];
 function App() {
   return (
     <div className={styles.app}>
       <Header />
-      {/* {articles.map((article, index) => (
-        <Article {...article} />
-      ))} */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
