@@ -17,14 +17,18 @@
   place-content: center;
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 12s ease infinite;
 	height: 100vh;
 
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   h1 {
-    font-weight: 300;
     font-size: 36px;
+  }
+
+  h3 a {
+    color: rgb(212, 212, 255);
+    text-decoration: none;
   }
   
   @media only screen and (max-width: 600px) {
