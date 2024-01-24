@@ -29,5 +29,6 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
-          source: "dist"
-          target: "dist"
+          port: ${{ secrets.PORT }}
+          source: "dist/"
+          target: "/"
