@@ -8,6 +8,8 @@ import Section from "./components/Section";
 
 import { Margin, usePDF } from "react-to-pdf";
 
+import packageJSON from '../package.json'
+
 const summaryContent = (
   <p>
     Experienced Frontend Engineer adept at streamlining team workflows, driving
@@ -238,6 +240,7 @@ function App() {
       >
         Download the resume
       </button>
+      <div className="text-sm text-center py-2 text-blue-900">Version: {packageJSON.version}</div>
     </div>
   );
 }
