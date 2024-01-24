@@ -208,7 +208,7 @@ function App() {
   return (
     <div className="relative max-w-cs mx-auto">
       <div
-        ref={targetRef}
+        // ref={targetRef}
         className="min-h-screen py-6 flex flex-col gap-3"
       >
         <ContactInformation />
