@@ -141,7 +141,7 @@ const experienceData: ExperienceSectipnProps[] = [
 const experienceContent = (
   <>
     {experienceData.map((item, index) => (
-      <div className="my-3">
+      <div>
         <ExperienceSection key={index} {...item} />
         {experienceData.length !== index + 1 && <Divider variant="200" />}
       </div>
@@ -209,7 +209,7 @@ function App() {
     <div className="relative max-w-cs mx-auto">
       <div
         ref={targetRef}
-        className="min-h-screen p-6 flex flex-col gap-3"
+        className="min-h-screen py-6 flex flex-col gap-3"
       >
         <ContactInformation />
         <Divider />
