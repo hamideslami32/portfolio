@@ -1,9 +1,17 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Overpass Mono Variable', sans-serif;
+  font-family: 'Cambay', sans-serif;
 }
+
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  a {
+    @apply text-blue-800 !important;
+  }
+}

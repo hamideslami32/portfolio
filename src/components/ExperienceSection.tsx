@@ -22,11 +22,11 @@ const ExperienceSection = (props: ExperienceSectipnProps) => {
     return tempDate;
   };
   return (
-    <div>
+    <>
       <div className="flex gap-4 items-baseline">
-        <h3 className="text-2xl font-bold text-gray-600 underline">
+        <h3 className="text-3xl font-bold text-gray-700">
           {link ? (
-            <a target="_blank" href={link}>
+            <a target="_blank" className="underline !text-gray-700" href={link}>
               {companyName}
             </a>
           ) : (
@@ -35,32 +35,38 @@ const ExperienceSection = (props: ExperienceSectipnProps) => {
         </h3>
         <span className="text-sm text-gray-500">({location})</span>
       </div>
-      <div className="pl-2 pt-2">
+      <div className="ml-2 pt-2">
         {positions.map((position, index) => (
-          <>
-            <div key={index}>
-              <span className="font-extrabold text-2xl text-blue-800">
-                {position.title}
-              </span>
-              |{" "}
-              <span className="font-bold">
-                {`${getDate(position.startDate)} - ${
-                  position?.endDate && getDate(position.endDate)
-                }`}
-              </span>
+          <div>
+            <div className="flex items-baseline gap-3 my-2">
+              <div className="w-[14px] h-[14px] bg-gray-400 rounded-full"></div>
+              <div key={index}>
+                <span className="font-bold text-2xl  text-blue-900 ">{position.title}</span>
+                {` | `}
+                <span className="text-gray-500">
+                  {`${getDate(position.startDate)} - ${
+                    position?.endDate && getDate(position.endDate)
+                  }`}
+                </span>
+              </div>
             </div>
-            <ul className="flex flex-col gap-3 my-2">
-              {position.achievements.map((achievement) => (
-                <li className="flex gap-2 items-baseline">
-                  <span className="">*</span>
-                  <span>{achievement}</span>
-                </li>
-              ))}
-            </ul>
-          </>
+            <div className="flex gap-2">
+              {(positions.length > 1 && positions.length - 1 !== index) && (
+                <div className="bg-gray-200 w-2 m-1 rounded-xl h-auto"></div>
+              )}
+              <ul className="flex flex-col gap-3 my-2 mx-6">
+                {position.achievements.map((achievement) => (
+                  <li className="flex gap-2 items-baseline">
+                    <span className="">*</span>
+                    <span>{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

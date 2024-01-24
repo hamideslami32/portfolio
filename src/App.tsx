@@ -6,20 +6,20 @@ import ExperienceSection, {
 import Section from "./components/Section";
 // import Summary from './components/Summary'
 
+import { Margin, usePDF } from 'react-to-pdf';
+
 const summaryContent = (
   <p>
-    Experienced Front End Engineer with 7+ years in HTML5, CSS3, JavaScript, and
-    TypeScript. Pro in React, Vue, Next.js, and Nuxt.js. Led teams at Risklick
-    and 3click, boosting efficiency and achieving a 10X sales increase.
-    Freelanced on various projects, mentored junior developers, and shared
-    insights through publications.
+    Experienced Frontend Engineer adept at streamlining team workflows, driving
+    sales growth, and mentoring junior developers. Proficient in React, Vue, and
+    Typescript, committed to crafting resilient and efficient code solutions. Have an endless passion for learning.
   </p>
 );
 
 const skillsContent = (
   <p>
-    React, Vue, Typescript, Javascript ES6+, HTML5, Css3, Sass, Webpack, Nextjs,
-    Vite, Vitest, React testing library, Jest, CI/CD, Docker, Tailwind
+    React, Node.js, Vue, Typescript, Javascript ES6+, HTML5, CSS3, Sass, Webpack, Nextjs,
+    Vite, Vitest, React testing library, Jest, CI/CD, Docker, Tailwind, MySQL, etc.
   </p>
 );
 
@@ -139,6 +139,7 @@ const experienceContent = (
     {experienceData.map((item, index) => (
       <div className="my-3">
         <ExperienceSection key={index} {...item} />
+        {experienceData.length !== index + 1 && <Divider variant="200" />}
       </div>
     ))}
   </>
@@ -148,8 +149,15 @@ const projectsContent = (
     <li className="flex gap-2 items-baseline">
       <span className="">*</span>
       <span>
-        Darmankade, Created a mobile application using Capacitor.js to export
-        APK and PWA with a single codebase.
+        <a
+          className="underline"
+          target="_blank"
+          href="https://cafebazaar.ir/app/com.darmankade.userapp?l=en"
+        >
+          Darmankade
+        </a>
+        , Created a mobile application using React, Typescript, RTKQuery, and
+        Capacitor.js to export APK and PWA with a single codebase.
       </span>
     </li>
   </ul>
@@ -174,18 +182,24 @@ const articlesData: Article[] = [
 const articlesContent = (
   <ul>
     {articlesData.map((article, index) => (
-      <a key={index} href={article.link} className="flex gap-2 items-baseline">
+      <li className="flex gap-2">
         <span className="">*</span>
-        <li className="underline text-blue-500">
+        <a
+          target="_blank"
+          key={index}
+          href={article.link}
+          className="underline"
+        >
           <span>{article.title}</span>
-        </li>
-      </a>
+        </a>
+      </li>
     ))}
   </ul>
 );
 function App() {
+  const { toPDF, targetRef } = usePDF({filename: 'Hamid Eslami Resume.pdf', page: { margin: Margin.SMALL }});
   return (
-    <div className="max-w-cs min-h-screen mx-auto p-6">
+    <div ref={targetRef} className="relative max-w-cs min-h-screen mx-auto p-6 flex flex-col gap-3">
       <ContactInformation />
       <Divider />
       <Section title="Summary">{summaryContent}</Section>
@@ -208,6 +222,7 @@ function App() {
           <span>Fluent</span>
         </div>
       </Section>
+      <button className="absolute right-0 p-2 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white transition-all border rounded-lg" onClick={() => toPDF()}>Download the resume</button>
     </div>
   );
 }

@@ -1,0 +1,33 @@
+  
+on:
+  push:
+    branches:    
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish-Portflio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Install dependencies
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+        # uses: bahmutov/npm-install@v1.6.0
+      - name: Building
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USER}}
+          password: ${{secrets.PASSWORD}}
+          source: "/"
+          target: "hamid-eslami.ir/"

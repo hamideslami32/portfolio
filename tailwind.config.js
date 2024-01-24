@@ -8,6 +8,11 @@ export default {
       }
     },
   },
+  safelist: [
+    'border-gray-100',
+    'border-gray-200',
+    'border-gray-300'
+  ],
   plugins: [],
 }
 
