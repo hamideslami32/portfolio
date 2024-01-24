@@ -29,5 +29,5 @@ jobs:
           host: ${{secrets.HOST}}
           username: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
-          source: ""
-          target: "hamid-eslami.ir/"
+          source: "dist"
+          target: "dist"
