@@ -6,20 +6,22 @@ import ExperienceSection, {
 import Section from "./components/Section";
 // import Summary from './components/Summary'
 
-import { Margin, usePDF } from 'react-to-pdf';
+import { Margin, usePDF } from "react-to-pdf";
 
 const summaryContent = (
   <p>
     Experienced Frontend Engineer adept at streamlining team workflows, driving
     sales growth, and mentoring junior developers. Proficient in React, Vue, and
-    Typescript, committed to crafting resilient and efficient code solutions. Have an endless passion for learning.
+    Typescript, committed to crafting resilient and efficient code solutions.
+    Have an endless passion for learning.
   </p>
 );
 
 const skillsContent = (
   <p>
-    React, Node.js, Vue, Typescript, Javascript ES6+, HTML5, CSS3, Sass, Webpack, Nextjs,
-    Vite, Vitest, React testing library, Jest, CI/CD, Docker, Tailwind, MySQL, etc.
+    React, Node.js, Vue, Typescript, Javascript ES6+, HTML5, CSS3, Sass,
+    Webpack, Nextjs, Vite, Vitest, React testing library, Jest, CI/CD, Docker,
+    Tailwind, MySQL, etc.
   </p>
 );
 
@@ -197,32 +199,45 @@ const articlesContent = (
   </ul>
 );
 function App() {
-  const { toPDF, targetRef } = usePDF({filename: 'Hamid Eslami Resume.pdf', page: { margin: Margin.SMALL }});
+  const { toPDF, targetRef } = usePDF({
+    filename: "Hamid Eslami Resume.pdf",
+    page: { margin: Margin.SMALL },
+  });
   return (
-    <div ref={targetRef} className="relative max-w-cs min-h-screen mx-auto p-6 flex flex-col gap-3">
-      <ContactInformation />
-      <Divider />
-      <Section title="Summary">{summaryContent}</Section>
-      <Divider />
-      <Section title="Skills">{skillsContent}</Section>
-      <Divider />
-      <Section title="Experiences">{experienceContent}</Section>
-      <Divider />
-      <Section title="Projects">{projectsContent}</Section>
-      <Divider />
-      <Section title="Articles">{articlesContent}</Section>
-      <Divider />
-      <Section title="Education">
-        Payame-Noor University | Physics associate degree | 2007 - 2010
-      </Section>
-      <Divider />
-      <Section title="Languages">
-        <div className="flex gap-2 items-baseline">
-          <span className="font-bold">English:</span>
-          <span>Fluent</span>
-        </div>
-      </Section>
-      <button className="absolute right-0 p-2 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white transition-all border rounded-lg" onClick={() => toPDF()}>Download the resume</button>
+    <div className="relative max-w-cs mx-auto">
+      <div
+        ref={targetRef}
+        className="min-h-screen p-6 flex flex-col gap-3"
+      >
+        <ContactInformation />
+        <Divider />
+        <Section title="Summary">{summaryContent}</Section>
+        <Divider />
+        <Section title="Skills">{skillsContent}</Section>
+        <Divider />
+        <Section title="Experiences">{experienceContent}</Section>
+        <Divider />
+        <Section title="Projects">{projectsContent}</Section>
+        <Divider />
+        <Section title="Articles">{articlesContent}</Section>
+        <Divider />
+        <Section title="Education">
+          Payame-Noor University | Physics associate degree | 2007 - 2010
+        </Section>
+        <Divider />
+        <Section title="Languages">
+          <div className="flex gap-2 items-baseline">
+            <span className="font-bold">English:</span>
+            <span>Fluent</span>
+          </div>
+        </Section>
+      </div>
+      <button
+        className="absolute right-0 top-4 p-2 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white transition-all border rounded-lg"
+        onClick={() => toPDF()}
+      >
+        Download the resume
+      </button>
     </div>
   );
 }
