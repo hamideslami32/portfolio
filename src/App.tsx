@@ -6,7 +6,7 @@ import ExperienceSection, {
 import Section from "./components/Section";
 // import Summary from './components/Summary'
 
-import { Margin, usePDF } from "react-to-pdf";
+// import { Margin, usePDF } from "react-to-pdf";
 
 import packageJSON from '../package.json'
 
@@ -201,10 +201,10 @@ const articlesContent = (
   </ul>
 );
 function App() {
-  const { toPDF, targetRef } = usePDF({
-    filename: "Hamid Eslami Resume.pdf",
-    page: { margin: Margin.SMALL },
-  });
+  // const { toPDF, targetRef } = usePDF({
+  //   filename: "Hamid Eslami Resume.pdf",
+  //   page: { margin: Margin.SMALL },
+  // });
   return (
     <div className="relative max-w-cs mx-auto">
       <div
