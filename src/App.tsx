@@ -234,12 +234,12 @@ function App() {
           </div>
         </Section>
       </div>
-      <button
+      {/* <button
         className="absolute right-0 top-4 p-2 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white transition-all border rounded-lg"
         onClick={() => toPDF()}
       >
         Download the resume
-      </button>
+      </button> */}
       <div className="text-sm text-center py-2 text-blue-900">Version: {packageJSON.version}</div>
     </div>
   );
